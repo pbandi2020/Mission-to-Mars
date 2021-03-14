@@ -11,8 +11,8 @@ Various python libraries we used to gather mars data and render into our new wee
    <td align="center"> <b> Mobile View </b> </td>
   </tr> 
   <tr>  
-    <td valign="top"> <img src="/app/Image/Mission_Mars_WebPage.png" width="250" /> </td>
-    <td valign="top"> <img src="/app/Image/Mission_Mars_WebPage.png" width="250" /> </td>
+    <td valign="top"> <img src="/app/Image/Mission_Mars_Webpage.png" width="250" /> </td>
+    <td valign="top"> <img src="/app/Image/Mission_Mars_Webpage.png" width="250" /> </td>
   </tr>     
 </Table> 
 
