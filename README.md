@@ -12,7 +12,7 @@ Various python libraries were used to gather mars data and render into our new w
   </tr> 
   <tr>  
     <td valign="top"> <img src="/app/Image/Mission_Mars_Webpage.png" width="250" /> </td>
-    <td valign="top"> <img src="/app/Image/Mission_Mars_Webpage.png" width="250" /> </td>
+    <td valign="top"> <img src="/app/Image/Mission_Mars_mobilepage.png" width="250" /> </td>
   </tr>     
 </Table> 
 
