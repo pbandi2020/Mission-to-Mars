@@ -1,7 +1,7 @@
 # Mission-to-Mars
 ## Overview of Project
 This project developed a website that scrapes the latest news and data on Mars. 
-Various python libraries we used to gather mars data and render into our new weebsite designed.
+Various python libraries were used to gather mars data and render into our new website designed.
 
 ## Responsive WebPage screen shots
 
