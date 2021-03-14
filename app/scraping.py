@@ -15,7 +15,7 @@ def scrape_all():
     # iniitate headdless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
     # executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     news_title, news_paragraph = mars_news(browser)
 
@@ -25,6 +25,7 @@ def scrape_all():
             "news_paragraph": news_paragraph,
             "featured_image": featured_image(browser),
             "facts": mars_facts(),
+            "hemispheres": hemisphere_scrape(browser),
             "last_modified": dt.datetime.now()
     }
     # Stop the webdriver and return the data
@@ -102,6 +103,38 @@ def mars_facts():
     # Convert the dataframe into HTML format and add bootstrap
 
     return df.to_html()
+# scrape the hemispheres of Mars
+def hemisphere_scrape(browser):
+    #visit url
+    url = 'https://data-class-mars-hemispheres.s3.amazonaws.com/Mars_Hemispheres/index.html'
+    browser.visit(url)
+    hemisphere_image_urls = []   # empty dictionary to hold titles and urls
+    #get the links of hemispheres
+    img_link = browser.find_by_css("a.product-item h3")
+    
+    #loop through the number of urls.
+    for i in range(4):
+        # empty dictionary
+        hemisphere_dict = {}   
+        #click on each url using the click()
+        browser.find_by_css('a.product-item h3')[i].click() 
+        #get the title of the hemisphere and add into the dictionary
+        hemisphere_dict['title']=  browser.find_by_css('h2.title').text
+        #just validating the title in the dictionary
+        print(hemisphere_dict)
+        #check links on the Sample text  within the same url 
+        img_url_text = browser.links.find_by_text('Sample').first
+        #add to the hemisphere dict 
+        hemisphere_dict['img_url'] = img_url_text['href']
+        print(hemisphere_dict)
+        #append the to empty list
+        hemisphere_image_urls.append(hemisphere_dict)
+        browser.back()
+    
+    return hemisphere_image_urls
+
+    # Finally, we navigate backwards
+    browser.back()
 
 # browser.quit()
 if __name__ == "__main__":
