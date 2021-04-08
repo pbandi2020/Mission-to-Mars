@@ -15,7 +15,7 @@ def scrape_all():
     # iniitate headdless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
     # executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=True)
+    browser = Browser('chrome', **executable_path, headless=False)
 
     news_title, news_paragraph = mars_news(browser)
 
@@ -102,7 +102,8 @@ def mars_facts():
     df.set_index('Description', inplace=True)
     # Convert the dataframe into HTML format and add bootstrap
 
-    return df.to_html()
+    return df.to_html(classes="table table-striped")
+
 # scrape the hemispheres of Mars
 def hemisphere_scrape(browser):
     #visit url
